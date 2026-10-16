@@ -1,0 +1,48 @@
+{
+  "hook": {
+    "enabled": true,
+    "limits": {
+      "maxFindings": 5,
+      "maxChars": 8000
+    }
+  },
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "hero-eyebrow-chip",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-16T23:13:36.478Z",
+        "reason": "User: homepage brief explicitly requires the OPERATIONAL SYSTEMS & TECHNOLOGY hero eyebrow"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-16T23:13:36.542Z",
+        "reason": "Agent: verified timeline dividers, SVG boundaries, and measurement separators have explicit content padding; detector mistakes divider edges for container edges"
+      },
+      {
+        "rule": "overused-font",
+        "value": "inter",
+        "createdAt": "2026-10-16T23:13:36.604Z",
+        "reason": "User: Delaro brand system locks Inter for body and UI text"
+      },
+      {
+        "rule": "numbered-section-labels",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-16T23:13:36.673Z",
+        "reason": "User: methodology and measurement sections require ordered architectural sequences; numbers communicate process order"
+      }
+    ]
+  }
+}
