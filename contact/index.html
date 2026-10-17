@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Start a conversation with Delaro Systems about an operational challenge, constraint, or improvement opportunity." />
+    <meta name="theme-color" content="#0B1F33" /><meta property="og:title" content="Contact — Delaro Systems" /><meta property="og:description" content="Tell Delaro how the operation works today and where the friction appears." /><meta property="og:type" content="website" />
+    <title>Contact — Delaro Systems</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@300;400;500&amp;display=swap" rel="stylesheet" /><link rel="stylesheet" href="/styles.css" /><script src="/script.js" defer></script>
+  </head>
+  <body data-page="contact">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header" data-header><div class="container header-inner"><a class="brand" href="/" aria-label="Delaro Systems home"><img src="/assets/brand/delaro-lockup.png" alt="Delaro Systems" width="1420" height="300" /></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"><span class="sr-only">Toggle navigation</span><span aria-hidden="true"></span><span aria-hidden="true"></span></button><nav class="primary-nav" id="primary-nav" aria-label="Primary navigation"><a href="/approach">Approach</a><a href="/capabilities">Capabilities</a><a href="/work">Work</a><a href="/company">Company</a><a class="nav-cta" href="/contact" aria-current="page">Start a Conversation <span aria-hidden="true">↗</span></a></nav></div></header>
+    <main id="main" class="page-main">
+      <section class="contact-page section-navy" aria-labelledby="page-title">
+        <div class="container contact-layout">
+          <div class="contact-intro"><h1 id="page-title">Tell us where the operation is under strain.</h1><p>Describe the problem as it appears today. You do not need to arrive with a solution, a technical specification, or a calculation of its value.</p><div class="contact-guide"><span>Useful starting points</span><ul><li>Where work slows down or changes hands</li><li>What feels repetitive, fragmented, or difficult to see</li><li>Which customers, teams, or decisions are affected</li></ul></div></div>
+
+          <div class="form-panel">
+            <form class="inquiry-form" data-contact-form action="/api/contact" method="post" novalidate>
+              <div class="form-heading"><h2>Operational inquiry</h2><p>All fields are required.</p></div>
+              <div class="form-field"><label for="name">Name</label><input id="name" name="name" type="text" autocomplete="name" minlength="2" maxlength="100" required aria-describedby="name-error" /><span class="field-error" id="name-error"></span></div>
+              <div class="form-field"><label for="email">Work email</label><input id="email" name="email" type="email" autocomplete="email" maxlength="254" inputmode="email" required aria-describedby="email-error" /><span class="field-error" id="email-error"></span></div>
+              <div class="form-field"><label for="company">Company</label><input id="company" name="company" type="text" autocomplete="organization" minlength="2" maxlength="160" required aria-describedby="company-error" /><span class="field-error" id="company-error"></span></div>
+              <div class="form-field"><label for="challenge">Operational challenge</label><textarea id="challenge" name="challenge" rows="7" minlength="30" maxlength="3000" required aria-describedby="challenge-help challenge-error"></textarea><span class="field-help" id="challenge-help">What is happening, who is involved, and what consequence does it create?</span><span class="field-error" id="challenge-error"></span></div>
+              <div class="form-trap" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" type="text" tabindex="-1" autocomplete="off" /></div>
+              <input type="hidden" name="startedAt" value="" data-started-at />
+              <button class="button button-light form-submit" type="submit"><span data-submit-label>Send Inquiry</span><span aria-hidden="true">↗</span></button>
+              <p class="form-status" data-form-status role="status" aria-live="polite"></p>
+              <p class="form-note">Your information is used only to review and respond to this inquiry. Privacy and legal pages will be added only after approved policy text is supplied.</p>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer section-navy"><div class="container footer-top"><a class="footer-brand" href="/" aria-label="Delaro Systems home"><img src="/assets/brand/delaro-lockup.png" alt="Delaro Systems" width="1420" height="300" /></a><nav aria-label="Footer navigation"><a href="/approach">Approach</a><a href="/capabilities">Capabilities</a><a href="/work">Work</a><a href="/company">Company</a></nav></div><div class="container footer-bottom"><span>© 2026 Delaro Systems</span><span>Operational systems &amp; technology</span></div></footer>
+  </body>
+</html>

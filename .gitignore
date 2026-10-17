@@ -1,5 +1,10 @@
 .DS_Store
 .impeccable/config.local.json
-work/
+.impeccable/review/
+work/*
+!work/index.html
 outputs/
-
+dist/
+.env
+.env.local
+.archify/

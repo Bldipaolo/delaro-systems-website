@@ -1,0 +1,16 @@
+{
+  "name": "delaro-systems-website",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "lint": "node scripts/lint.mjs",
+    "typecheck": "node --check script.js && node --check api/contact.js && node --check scripts/build.mjs && node --check scripts/lint.mjs",
+    "test": "node scripts/test-contact.mjs",
+    "check": "npm run lint && npm run typecheck && npm test && npm run build"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

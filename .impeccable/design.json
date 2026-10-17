@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-16T16:00:00Z",
+  "title": "Design System: Delaro Systems",
+  "extensions": {
+    "colorMeta": {
+      "deep-navy": { "role": "primary", "displayName": "Deep Navy", "canonical": "#0B1F33", "tonalRamp": ["#07121E", "#0B1F33", "#173653", "#31516D", "#5A7184", "#8999A7", "#BBC4CB", "#EDF0F2"] },
+      "sea-glass": { "role": "secondary", "displayName": "Sea Glass", "canonical": "#4E9D93", "tonalRamp": ["#12312D", "#1E4C46", "#2F6D65", "#4E9D93", "#79B8B0", "#A5D0CA", "#D2E8E5", "#F0F8F7"] },
+      "slate": { "role": "neutral", "displayName": "Slate", "canonical": "#2D3E4A", "tonalRamp": ["#11191E", "#202C34", "#2D3E4A", "#4B5B66", "#71808A", "#9DA7AE", "#C9CFD3", "#F0F2F3"] },
+      "silver-gray": { "role": "neutral", "displayName": "Silver Gray", "canonical": "#B8C0C7", "tonalRamp": ["#24282C", "#41474C", "#626A71", "#899198", "#B8C0C7", "#D0D5D9", "#E5E8EA", "#F5F6F7"] },
+      "warm-white": { "role": "neutral", "displayName": "Warm White", "canonical": "#F6F4EE", "tonalRamp": ["#282721", "#4C4A42", "#747168", "#9E9A90", "#C8C4BA", "#E0DDD5", "#F0EEE8", "#F6F4EE"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "The single dominant page statement." },
+      "headline": { "displayName": "Headline", "purpose": "Section-level arguments." },
+      "title": { "displayName": "Title", "purpose": "Sequence, capability, and local headings." },
+      "body": { "displayName": "Body", "purpose": "Explanatory copy and form content." },
+      "label": { "displayName": "Label", "purpose": "Functional diagram metadata and indexes." }
+    },
+    "shadows": [
+      { "name": "intervention-halo", "value": "0 0 0 12px rgba(78, 157, 147, 0.12)", "purpose": "Marks a meaningful intervention point; never general elevation." }
+    ],
+    "motion": [
+      { "name": "ease-architectural", "value": "cubic-bezier(.22, .8, .24, 1)", "purpose": "Page arrival, header state, and deliberate diagram reveals." },
+      { "name": "state-fast", "value": "160ms ease-out", "purpose": "Buttons, links, and form focus transitions." }
+    ],
+    "breakpoints": [
+      { "name": "sequence", "value": "1060px" },
+      { "name": "navigation", "value": "820px" },
+      { "name": "compact", "value": "620px" }
+    ],
+    "components": [
+      {
+        "name": "Primary Light Button",
+        "kind": "button",
+        "refersTo": "button-primary",
+        "description": "Primary action on a navy field.",
+        "html": "<button class=\"ds-btn-light\">Start a Conversation <span aria-hidden=\"true\">↗</span></button>",
+        "css": ".ds-btn-light { min-height: 50px; display: inline-flex; align-items: center; justify-content: center; gap: 28px; padding: 0 19px; border: 1px solid transparent; border-radius: 4px; background: var(--warm, #F6F4EE); color: var(--navy, #0B1F33); font: 600 13px Inter, sans-serif; transition: transform 160ms ease-out, border-color 160ms ease-out; } .ds-btn-light:hover { border-color: var(--sea, #4E9D93); transform: translateY(-2px); } .ds-btn-light:focus-visible { outline: 2px solid var(--sea, #4E9D93); outline-offset: 5px; } .ds-btn-light:active { transform: scale(.98); }"
+      },
+      {
+        "name": "Dark Submit Button",
+        "kind": "button",
+        "refersTo": "button-dark",
+        "description": "Full-width submit action on a warm form panel.",
+        "html": "<button class=\"ds-btn-dark\">Send Inquiry <span aria-hidden=\"true\">↗</span></button>",
+        "css": ".ds-btn-dark { width: 100%; min-height: 50px; display: inline-flex; align-items: center; justify-content: space-between; padding: 0 19px; border: 1px solid transparent; border-radius: 4px; background: var(--navy, #0B1F33); color: var(--warm, #F6F4EE); font: 600 13px Inter, sans-serif; transition: transform 160ms ease-out, border-color 160ms ease-out; } .ds-btn-dark:hover { border-color: var(--sea, #4E9D93); transform: translateY(-2px); } .ds-btn-dark:focus-visible { outline: 2px solid var(--sea, #4E9D93); outline-offset: 5px; }"
+      },
+      {
+        "name": "Text Field",
+        "kind": "input",
+        "refersTo": "input",
+        "description": "Explicitly labeled editorial form field.",
+        "html": "<label class=\"ds-field\"><span>Work email</span><input type=\"email\" placeholder=\"name@company.com\"></label>",
+        "css": ".ds-field { display: grid; gap: 10px; color: var(--navy, #0B1F33); font: 600 13px Inter, sans-serif; } .ds-field input { width: 100%; padding: 13px 0 14px; border: 0; border-bottom: 1px solid var(--silver, #B8C0C7); border-radius: 0; outline: 0; background: transparent; color: var(--navy, #0B1F33); font: 400 16px/1.55 Inter, sans-serif; } .ds-field input:focus { border-color: var(--sea, #4E9D93); box-shadow: 0 1px 0 var(--sea, #4E9D93); }"
+      },
+      {
+        "name": "Primary Navigation",
+        "kind": "nav",
+        "description": "Compact navigation with a linear active state.",
+        "html": "<nav class=\"ds-nav\"><a class=\"ds-current\" href=\"#\">Approach</a><a href=\"#\">Capabilities</a><a href=\"#\">Work</a></nav>",
+        "css": ".ds-nav { display: flex; align-items: center; gap: 32px; background: var(--navy, #0B1F33); color: var(--warm, #F6F4EE); font: 500 13px Inter, sans-serif; } .ds-nav a { position: relative; padding: 12px 0; color: inherit; text-decoration: none; } .ds-nav a::after { content: ''; position: absolute; inset: auto 0 5px; height: 1px; background: var(--sea, #4E9D93); transform: scaleX(0); transform-origin: left; transition: transform 180ms cubic-bezier(.22, .8, .24, 1); } .ds-nav a:hover::after, .ds-nav a:focus-visible::after, .ds-nav .ds-current::after { transform: scaleX(1); } .ds-nav a:focus-visible { outline: 2px solid var(--sea, #4E9D93); outline-offset: 5px; }"
+      },
+      {
+        "name": "Linear Horizon",
+        "kind": "custom",
+        "description": "A labeled line that relates two operational states.",
+        "html": "<div class=\"ds-horizon\"><span>Business context</span><i></i><span>Measured outcome</span></div>",
+        "css": ".ds-horizon { display: flex; align-items: center; gap: 18px; color: var(--warm, #F6F4EE); font: 500 11px/1.4 Inter, sans-serif; letter-spacing: .13em; text-transform: uppercase; } .ds-horizon i { flex: 1; height: 1px; background: var(--sea, #4E9D93); }"
+      }
+    ],
+    "narrative": {
+      "northStar": "The Operating Blueprint",
+      "overview": "Delaro's visual system treats the website as an architectural drawing of a business: measured, spacious, and explicit about relationships. Deep fields establish authority; warm editorial surfaces create moments for analysis; thin lines expose sequence, handoff, and causality. The composition is premium but not ornamental. Type carries most of the expression, diagrams carry meaning, and Sea Glass appears only where attention or intervention is consequential.",
+      "keyCharacteristics": ["Navy-dominant editorial rhythm with selective warm-white analysis sections.", "Asymmetric twelve-column compositions and generous negative space.", "Fine linear diagrams, registers, and the recurring Linear Horizon.", "Restrained, state-driven motion that preserves reading order."],
+      "rules": [
+        { "name": "The Intervention Rule", "body": "Sea Glass marks action, focus, or a consequential point in a system; it is not ambient decoration.", "section": "colors" },
+        { "name": "The Two-Ground Rule", "body": "Compose primarily on Deep Navy or Warm White. Slate supports hierarchy but does not become a third competing page ground.", "section": "colors" },
+        { "name": "The One-Statement Rule", "body": "Each viewport earns one dominant typographic statement; supporting copy remains visibly subordinate.", "section": "typography" },
+        { "name": "The Alignment Rule", "body": "Major type, dividers, and diagram anchors share the container grid; small misalignments are treated as defects, not texture.", "section": "layout" },
+        { "name": "The Flat-By-Default Rule", "body": "Surfaces remain in the document plane; depth appears only when it clarifies navigation state or an intervention point.", "section": "elevation" }
+      ],
+      "dos": ["Do let typography, alignment, and negative space create the premium character.", "Do reserve Sea Glass for interventions, focus, and meaningful state changes.", "Do use fine rules and diagrams to make operations, causality, and measurement visible.", "Do preserve semantic reading order, keyboard access, reduced motion, reduced transparency, and increased contrast support."],
+      "donts": ["Don't introduce gradients, glowing backgrounds, stock business imagery, or cartoon illustration.", "Don't turn capabilities into identical product-package cards or invent proof points.", "Don't use oversized pills, heavy shadows, centered SaaS layouts, or ornamental motion.", "Don't add hero kickers by default; the homepage eyebrow is a specific approved exception, not a reusable page template."]
+    }
+  }
+}
