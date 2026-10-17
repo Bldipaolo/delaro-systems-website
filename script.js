@@ -3,23 +3,45 @@ const menuToggle = document.querySelector('.menu-toggle');
 const navigation = document.querySelector('#primary-nav');
 const navLinks = [...document.querySelectorAll('[data-section-link]')];
 const contactForm = document.querySelector('[data-contact-form]');
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+const mobileNavigation = window.matchMedia('(max-width: 820px)');
 
-const syncHeader = () => {
-  header?.classList.toggle('is-scrolled', window.scrollY > 12);
-};
+if (!reduceMotion.matches) document.documentElement.classList.add('motion-ready');
 
 const closeMenu = ({ returnFocus = false } = {}) => {
   if (!navigation || !menuToggle) return;
   navigation.classList.remove('is-open');
   menuToggle.setAttribute('aria-expanded', 'false');
+  if (mobileNavigation.matches) navigation.inert = true;
+  document.body.classList.remove('menu-open');
   if (returnFocus) menuToggle.focus();
 };
 
-menuToggle?.addEventListener('click', () => {
+const openMenu = ({ moveFocus = false } = {}) => {
+  if (!navigation || !menuToggle) return;
+  navigation.inert = false;
+  navigation.classList.add('is-open');
+  menuToggle.setAttribute('aria-expanded', 'true');
+  document.body.classList.add('menu-open');
+  if (moveFocus) requestAnimationFrame(() => navigation.querySelector('a')?.focus());
+};
+
+const syncNavigationMode = () => {
+  if (!navigation || !menuToggle) return;
+  if (mobileNavigation.matches) {
+    closeMenu();
+  } else {
+    navigation.inert = false;
+    navigation.classList.remove('is-open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('menu-open');
+  }
+};
+
+menuToggle?.addEventListener('click', (event) => {
   if (!navigation) return;
-  const isOpen = navigation.classList.toggle('is-open');
-  menuToggle.setAttribute('aria-expanded', String(isOpen));
-  if (isOpen) navigation.querySelector('a')?.focus();
+  if (navigation.classList.contains('is-open')) closeMenu();
+  else openMenu({ moveFocus: event.detail === 0 });
 });
 
 navigation?.querySelectorAll('a').forEach((link) => {
@@ -32,9 +54,27 @@ document.addEventListener('keydown', (event) => {
   }
 });
 
-window.addEventListener('resize', () => {
-  if (window.innerWidth > 820) closeMenu();
+document.addEventListener('pointerdown', (event) => {
+  if (!navigation?.classList.contains('is-open')) return;
+  if (!header?.contains(event.target)) closeMenu();
 });
+
+mobileNavigation.addEventListener('change', syncNavigationMode);
+syncNavigationMode();
+
+if (header && 'IntersectionObserver' in window) {
+  const headerSentinel = document.createElement('span');
+  headerSentinel.className = 'header-sentinel';
+  headerSentinel.setAttribute('aria-hidden', 'true');
+  header.before(headerSentinel);
+
+  const headerObserver = new IntersectionObserver(([entry]) => {
+    header.classList.toggle('is-scrolled', !entry.isIntersecting);
+  });
+  headerObserver.observe(headerSentinel);
+} else {
+  header?.classList.toggle('is-scrolled', window.scrollY > 12);
+}
 
 const sectionObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
@@ -49,6 +89,80 @@ navLinks.forEach((link) => {
   const section = document.getElementById(link.dataset.sectionLink);
   if (section) sectionObserver.observe(section);
 });
+
+if (!reduceMotion.matches && 'IntersectionObserver' in window) {
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-visible');
+      observer.unobserve(entry.target);
+    });
+  }, { rootMargin: '0px 0px -12%', threshold: 0.08 });
+
+  const registerReveal = (element, order = 0) => {
+    if (!element || element.closest('.hero, .page-hero, .contact-page')) return;
+    element.classList.add('motion-reveal');
+    element.style.setProperty('--motion-order', String(Math.min(order, 4)));
+    revealObserver.observe(element);
+  };
+
+  document.querySelectorAll('main section:not(.hero):not(.page-hero):not(.contact-page) h2').forEach((heading) => {
+    registerReveal(heading);
+    const supportingCopy = heading.parentElement?.querySelector('.section-lede, .large-copy');
+    if (supportingCopy) registerReveal(supportingCopy, 1);
+  });
+
+  const sequenceSelectors = [
+    '.method-sequence',
+    '.diagnostic-sequence',
+    '.capability-list',
+    '.capability-detail-list',
+    '.relationship-cycle',
+    '.evidence-sequence',
+    '.company-principles',
+  ];
+
+  sequenceSelectors.forEach((selector) => {
+    document.querySelectorAll(selector).forEach((sequence) => {
+      sequence.classList.add('motion-sequence');
+      [...sequence.children].forEach((item, index) => {
+        item.style.setProperty('--motion-order', String(Math.min(index, 5)));
+      });
+      revealObserver.observe(sequence);
+    });
+  });
+
+  document.querySelectorAll('.architecture-line i, .relationship-orbit i, .impact-axis i, .starting-flow i').forEach((line) => {
+    line.classList.add('motion-line');
+    revealObserver.observe(line);
+  });
+
+  const prepareDiagram = (diagram, pathSelector, nodeSelector) => {
+    if (!diagram) return;
+    diagram.classList.add('motion-diagram');
+    diagram.querySelectorAll(pathSelector).forEach((path, index) => {
+      path.setAttribute('pathLength', '1');
+      path.classList.add('motion-path');
+      path.style.setProperty('--motion-order', String(Math.min(index, 5)));
+    });
+    diagram.querySelectorAll(nodeSelector).forEach((node, index) => {
+      node.classList.add('motion-node');
+      node.style.setProperty('--motion-order', String(Math.min(index, 5)));
+    });
+    revealObserver.observe(diagram);
+  };
+
+  prepareDiagram(
+    document.querySelector('.friction-diagram'),
+    '.lane-lines path, .flow-path path, .friction-marker line',
+    '.flow-node, .friction-marker circle, .friction-marker text',
+  );
+  prepareDiagram(
+    document.querySelector('.operating-map'),
+    '.map-lanes path, .map-connections path, .map-friction path',
+    '.map-flow > g, .map-friction circle, .map-support',
+  );
+}
 
 if (contactForm) {
   const startedAt = contactForm.querySelector('[data-started-at]');
@@ -130,6 +244,3 @@ if (contactForm) {
     }
   });
 }
-
-syncHeader();
-window.addEventListener('scroll', syncHeader, { passive: true });

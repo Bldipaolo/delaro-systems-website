@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-16T16:00:00Z",
+  "generatedAt": "2026-10-16T18:00:00Z",
   "title": "Design System: Delaro Systems",
   "extensions": {
     "colorMeta": {
@@ -21,8 +21,11 @@
       { "name": "intervention-halo", "value": "0 0 0 12px rgba(78, 157, 147, 0.12)", "purpose": "Marks a meaningful intervention point; never general elevation." }
     ],
     "motion": [
-      { "name": "ease-architectural", "value": "cubic-bezier(.22, .8, .24, 1)", "purpose": "Page arrival, header state, and deliberate diagram reveals." },
-      { "name": "state-fast", "value": "160ms ease-out", "purpose": "Buttons, links, and form focus transitions." }
+      { "name": "ease-out", "value": "cubic-bezier(.23, 1, .32, 1)", "purpose": "Responsive interface arrivals and immediate state feedback." },
+      { "name": "ease-in-out", "value": "cubic-bezier(.77, 0, .175, 1)", "purpose": "Explanatory line and process relationship reveals." },
+      { "name": "ease-drawer", "value": "cubic-bezier(.32, .72, 0, 1)", "purpose": "The mobile navigation disclosure." },
+      { "name": "ease-reveal", "value": "cubic-bezier(.16, 1, .3, 1)", "purpose": "The authored hero and restrained editorial reveals." },
+      { "name": "state-fast", "value": "160ms ease", "purpose": "Buttons, links, and form focus transitions." }
     ],
     "breakpoints": [
       { "name": "sequence", "value": "1060px" },
@@ -78,7 +81,8 @@
         { "name": "The Two-Ground Rule", "body": "Compose primarily on Deep Navy or Warm White. Slate supports hierarchy but does not become a third competing page ground.", "section": "colors" },
         { "name": "The One-Statement Rule", "body": "Each viewport earns one dominant typographic statement; supporting copy remains visibly subordinate.", "section": "typography" },
         { "name": "The Alignment Rule", "body": "Major type, dividers, and diagram anchors share the container grid; small misalignments are treated as defects, not texture.", "section": "layout" },
-        { "name": "The Flat-By-Default Rule", "body": "Surfaces remain in the document plane; depth appears only when it clarifies navigation state or an intervention point.", "section": "elevation" }
+        { "name": "The Flat-By-Default Rule", "body": "Surfaces remain in the document plane; depth appears only when it clarifies navigation state or an intervention point.", "section": "elevation" },
+        { "name": "The Motion-Explains Rule", "body": "Animate only to acknowledge input, preserve navigation continuity, or reveal an operational relationship. Nothing loops, follows the cursor, or moves merely because it is on screen.", "section": "elevation" }
       ],
       "dos": ["Do let typography, alignment, and negative space create the premium character.", "Do reserve Sea Glass for interventions, focus, and meaningful state changes.", "Do use fine rules and diagrams to make operations, causality, and measurement visible.", "Do preserve semantic reading order, keyboard access, reduced motion, reduced transparency, and increased contrast support."],
       "donts": ["Don't introduce gradients, glowing backgrounds, stock business imagery, or cartoon illustration.", "Don't turn capabilities into identical product-package cards or invent proof points.", "Don't use oversized pills, heavy shadows, centered SaaS layouts, or ornamental motion.", "Don't add hero kickers by default; the homepage eyebrow is a specific approved exception, not a reusable page template."]

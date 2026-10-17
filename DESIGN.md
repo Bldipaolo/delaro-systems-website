@@ -142,7 +142,11 @@ At 1060px, dense horizontal sequences begin to reflow. At 820px, navigation beco
 
 The system is flat by default and uses tonal fields, borders, transparency, and whitespace for depth. Shadows do not lift content cards. The only ambient halo is the restrained Sea Glass intervention marker, where it communicates a selected point rather than elevation. The fixed header may use a translucent navy layer and blur while scrolling, with a solid fallback when reduced transparency is preferred.
 
+Motion explains sequence, continuity, and response. The homepage entrance is the single authored focal sequence; supporting pages use shorter entrances, and scrolled content reveals only where hierarchy or process relationships benefit. Interface feedback remains under 300ms, while explanatory linework may run longer. Position changes use transforms, content changes use opacity, and the bounded process diagrams alone may animate stroke progression.
+
 **The Flat-By-Default Rule.** Surfaces remain in the document plane; depth appears only when it clarifies navigation state or an intervention point.
+
+**The Motion-Explains Rule.** Animate only to acknowledge input, preserve navigation continuity, or reveal an operational relationship. Nothing loops, follows the cursor, or moves merely because it is on screen.
 
 ## Shapes
 
