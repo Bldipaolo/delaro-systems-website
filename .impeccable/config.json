@@ -42,6 +42,15 @@
         ],
         "createdAt": "2026-10-16T23:13:36.673Z",
         "reason": "User: methodology and measurement sections require ordered architectural sequences; numbers communicate process order"
+      },
+      {
+        "rule": "tiny-text",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-17T00:51:56.512Z",
+        "reason": "Sanctioned exception: DESIGN.md defines 11px semibold tracked metadata labels; all homepage occurrences are short non-body indexes, captions, or status metadata."
       }
     ]
   }

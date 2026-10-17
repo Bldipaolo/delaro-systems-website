@@ -9,6 +9,10 @@ colors:
   warm-white: "#F6F4EE"
   error: "#883636"
   success: "#25685F"
+proposedDerivedSurfaces:
+  cinematic-ink: "#050D16"
+  cinematic-deep: "#081827"
+  media-scrim: "rgba(5, 13, 22, 0.34)"
 typography:
   display:
     fontFamily: "Manrope, sans-serif"
@@ -52,6 +56,10 @@ spacing:
   control-x: "19px"
   gutter: "clamp(20px, 5vw, 72px)"
   section: "clamp(96px, 12vw, 176px)"
+visualRatios:
+  darkField: "75%"
+  warmEditorial: "20%"
+  seaGlassIntervention: "5% maximum"
 components:
   button-primary:
     backgroundColor: "{colors.warm-white}"
@@ -88,6 +96,13 @@ The composition is premium but not ornamental. Type carries most of the expressi
 - Asymmetric twelve-column compositions and generous negative space.
 - Fine linear diagrams, registers, and the recurring Linear Horizon.
 - Restrained, state-driven motion that preserves reading order.
+- Static-first cinematic media that remains legible and complete before any optional video enhancement loads.
+
+## Cinematic foundation proposal
+
+The approved brand colors remain unchanged. For photographic stages and deep page transitions, the implementation may derive **Cinematic Ink** (`#050D16`) and **Cinematic Deep** (`#081827`) from Deep Navy. These are proposed layout surfaces—not additions to the official brand palette—and must never replace Deep Navy in logos, brand documentation, or color-critical UI.
+
+The proposed composition ratio is approximately 75% dark field, 20% Warm White editorial relief, and no more than 5% Sea Glass intervention. This ratio describes page rhythm, not a requirement for every viewport. The inaccessible asset manifest and reference image must be reviewed before treating these proposals as approved.
 
 ## Colors
 
@@ -134,9 +149,28 @@ The palette moves between a cool, authoritative dark field and a warm paper fiel
 
 The system uses a centered container capped at 1380px with a fluid outer gutter. Desktop layouts follow an editorial twelve-column logic expressed as asymmetric 4/8, 5/7, 6/6, and 3/9 divisions. Section spacing is intentionally large, and visible rules align to the same container geometry.
 
+## Motion and media behavior
+
+Motion explains hierarchy and operating relationships; it is not ambient decoration. First-screen copy and navigation use short one-time opacity/transform choreography. Below the fold, only section arguments, ordered sequences, Linear Horizon rules, and meaningful SVG relationships reveal as they enter the viewport. Diagram strokes draw once, then remain static. Interactive feedback stays under 240ms and uses explicit properties rather than `transition: all`.
+
+Optional media video is progressive enhancement. The poster remains the canonical layout and fallback; video is hydrated only near the viewport, pauses offscreen and in hidden documents, and is skipped for reduced motion or data-saving preferences. Looping is opt-in, not the default. Reduced motion removes spatial movement while preserving immediate state feedback and legibility.
+
 At 1060px, dense horizontal sequences begin to reflow. At 820px, navigation becomes a full-width disclosure and multi-column editorial layouts stack. At 620px, sequences become vertical, gutters settle at 22px, and section spacing becomes 90px. Process diagrams may scroll horizontally when preserving their causal structure is clearer than collapsing them.
 
 **The Alignment Rule.** Major type, dividers, and diagram anchors share the container grid; small misalignments are treated as defects, not texture.
+
+Reusable layout primitives include `.editorial-grid-12`, span utilities, `.dark-section`, and `.hairline-rule`. They preserve the existing 1380px container and do not introduce a component framework.
+
+## Media architecture
+
+`.media-stage` is the shared static-first media contract:
+
+- A responsive `<picture>` is always the first visual layer and reserves its dimensions with an explicit aspect ratio and image dimensions.
+- Desktop and mobile sources may use independent crops; `--media-position` and `--media-position-mobile` provide per-instance focal control.
+- Key headings, body copy, actions, and navigation remain outside the media. Overlay content is supplemental metadata only.
+- Optional `data-video-webm` and `data-video-mp4` attributes progressively add silent inline video. The poster remains visible until the video can play.
+- Video enhancement is skipped for reduced-motion and Save-Data preferences, and playback pauses outside the viewport.
+- Every stage carries an asset ID from the approved manifest. Until the manifest is readable, provisional IDs are explicitly marked pending and no stock imagery is substituted.
 
 ## Elevation & Depth
 
@@ -160,6 +194,7 @@ Corners are nearly square. Buttons use a restrained control radius; inputs and e
 - **Primary:** Warm White on Deep Navy pages; dark form submits invert to Deep Navy on Warm White.
 - **Hover / Focus:** A slight two-pixel lift on pointer hover, Sea Glass border or outline, and a global high-visibility focus ring.
 - **Active:** Brief 0.98 scale response; all motion collapses under reduced-motion preferences.
+- **Variants:** Solid Warm White is reserved for the primary page action. Outline and quiet variants provide hierarchy without introducing Sea Glass-filled controls.
 
 ### Text Links
 
@@ -182,7 +217,7 @@ Corners are nearly square. Buttons use a restrained control radius; inputs and e
 
 ### Navigation
 
-The full logo anchors a fixed 88px desktop header. Links use compact Inter and a one-pixel Sea Glass active indicator. Below 820px, a 44px menu control opens a stacked, full-width navy navigation with 48px minimum row targets.
+The full approved logo anchors a fixed 88px desktop header. The header is transparent over the opening stage and resolves to a subtle Cinematic Ink material after scroll. Links use compact Inter and a one-pixel active indicator. Below 820px, a 44px menu control opens a stacked, full-width dark navigation with 48px minimum row targets.
 
 ### Linear Horizon
 

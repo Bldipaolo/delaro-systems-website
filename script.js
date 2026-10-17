@@ -3,10 +3,13 @@ const menuToggle = document.querySelector('.menu-toggle');
 const navigation = document.querySelector('#primary-nav');
 const navLinks = [...document.querySelectorAll('[data-section-link]')];
 const contactForm = document.querySelector('[data-contact-form]');
+const mediaStages = [...document.querySelectorAll('[data-media-stage]')];
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const mobileNavigation = window.matchMedia('(max-width: 820px)');
+const saveData = navigator.connection?.saveData === true;
+const supportsIntersectionObserver = 'IntersectionObserver' in window;
 
-if (!reduceMotion.matches) document.documentElement.classList.add('motion-ready');
+if (!reduceMotion.matches && supportsIntersectionObserver) document.documentElement.classList.add('motion-ready');
 
 const closeMenu = ({ returnFocus = false } = {}) => {
   if (!navigation || !menuToggle) return;
@@ -62,7 +65,95 @@ document.addEventListener('pointerdown', (event) => {
 mobileNavigation.addEventListener('change', syncNavigationMode);
 syncNavigationMode();
 
-if (header && 'IntersectionObserver' in window) {
+const managedVideos = new Set();
+
+const pauseManagedVideos = () => {
+  managedVideos.forEach((video) => video.pause());
+};
+
+const syncManagedVideo = (video) => {
+  const shouldPlay = video.dataset.inViewport === 'true'
+    && document.visibilityState === 'visible'
+    && !reduceMotion.matches;
+  if (shouldPlay) video.play().catch(() => {});
+  else video.pause();
+};
+
+const hydrateVideoStage = (stage) => {
+  if (stage.dataset.videoHydrated === 'true' || reduceMotion.matches || saveData) return;
+
+  const webm = stage.dataset.videoWebm;
+  const mp4 = stage.dataset.videoMp4;
+  if (!webm && !mp4) return;
+
+  stage.dataset.videoHydrated = 'true';
+  const video = document.createElement('video');
+  const poster = stage.querySelector('.media-stage-poster img');
+  video.className = 'media-stage-video';
+  video.muted = true;
+  video.playsInline = true;
+  video.loop = stage.dataset.videoLoop === 'true';
+  video.preload = 'metadata';
+  video.setAttribute('aria-hidden', 'true');
+  if (poster?.currentSrc || poster?.src) video.poster = poster.currentSrc || poster.src;
+
+  if (webm) {
+    const source = document.createElement('source');
+    source.src = webm;
+    source.type = 'video/webm';
+    video.append(source);
+  }
+  if (mp4) {
+    const source = document.createElement('source');
+    source.src = mp4;
+    source.type = 'video/mp4';
+    video.append(source);
+  }
+
+  stage.querySelector('.media-stage-poster')?.after(video);
+  managedVideos.add(video);
+  video.addEventListener('canplay', () => stage.classList.add('is-video-ready'), { once: true });
+
+  if (stage.dataset.videoAutoplay === 'true' && supportsIntersectionObserver) {
+    const playbackObserver = new IntersectionObserver(([entry]) => {
+      video.dataset.inViewport = String(entry.isIntersecting);
+      syncManagedVideo(video);
+    }, { threshold: 0.2 });
+    playbackObserver.observe(stage);
+  }
+
+  video.load();
+};
+
+if (!reduceMotion.matches && !saveData) {
+  if (supportsIntersectionObserver) {
+    const videoHydrationObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        hydrateVideoStage(entry.target);
+        observer.unobserve(entry.target);
+      });
+    }, { rootMargin: '240px 0px', threshold: 0 });
+    mediaStages.forEach((stage) => videoHydrationObserver.observe(stage));
+  } else {
+    mediaStages.forEach(hydrateVideoStage);
+  }
+}
+
+document.addEventListener('visibilitychange', () => {
+  managedVideos.forEach(syncManagedVideo);
+});
+
+reduceMotion.addEventListener('change', ({ matches }) => {
+  document.documentElement.classList.toggle('motion-ready', !matches && supportsIntersectionObserver);
+  if (matches) pauseManagedVideos();
+  else {
+    mediaStages.forEach(hydrateVideoStage);
+    managedVideos.forEach(syncManagedVideo);
+  }
+});
+
+if (header && supportsIntersectionObserver) {
   const headerSentinel = document.createElement('span');
   headerSentinel.className = 'header-sentinel';
   headerSentinel.setAttribute('aria-hidden', 'true');
@@ -76,21 +167,23 @@ if (header && 'IntersectionObserver' in window) {
   header?.classList.toggle('is-scrolled', window.scrollY > 12);
 }
 
-const sectionObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (!entry.isIntersecting) return;
-    navLinks.forEach((link) => {
-      link.classList.toggle('is-current', link.dataset.sectionLink === entry.target.id);
+if (supportsIntersectionObserver) {
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      navLinks.forEach((link) => {
+        link.classList.toggle('is-current', link.dataset.sectionLink === entry.target.id);
+      });
     });
+  }, { rootMargin: '-30% 0px -60%', threshold: 0 });
+
+  navLinks.forEach((link) => {
+    const section = document.getElementById(link.dataset.sectionLink);
+    if (section) sectionObserver.observe(section);
   });
-}, { rootMargin: '-30% 0px -60%', threshold: 0 });
+}
 
-navLinks.forEach((link) => {
-  const section = document.getElementById(link.dataset.sectionLink);
-  if (section) sectionObserver.observe(section);
-});
-
-if (!reduceMotion.matches && 'IntersectionObserver' in window) {
+if (!reduceMotion.matches && supportsIntersectionObserver) {
   const revealObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
@@ -137,7 +230,7 @@ if (!reduceMotion.matches && 'IntersectionObserver' in window) {
     revealObserver.observe(line);
   });
 
-  const prepareDiagram = (diagram, pathSelector, nodeSelector) => {
+  const prepareDiagram = (diagram, pathSelector, nodeSelector, emphasisSelector) => {
     if (!diagram) return;
     diagram.classList.add('motion-diagram');
     diagram.querySelectorAll(pathSelector).forEach((path, index) => {
@@ -149,6 +242,9 @@ if (!reduceMotion.matches && 'IntersectionObserver' in window) {
       node.classList.add('motion-node');
       node.style.setProperty('--motion-order', String(Math.min(index, 5)));
     });
+    diagram.querySelectorAll(emphasisSelector).forEach((element) => {
+      element.classList.add('motion-emphasis');
+    });
     revealObserver.observe(diagram);
   };
 
@@ -156,11 +252,13 @@ if (!reduceMotion.matches && 'IntersectionObserver' in window) {
     document.querySelector('.friction-diagram'),
     '.lane-lines path, .flow-path path, .friction-marker line',
     '.flow-node, .friction-marker circle, .friction-marker text',
+    '.friction-marker circle:last-of-type',
   );
   prepareDiagram(
     document.querySelector('.operating-map'),
     '.map-lanes path, .map-connections path, .map-friction path',
     '.map-flow > g, .map-friction circle, .map-support',
+    '.map-friction circle',
   );
 }
 

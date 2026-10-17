@@ -31,7 +31,7 @@ This runs link/structure linting, JavaScript syntax checks, and a static product
 
 ## Contact delivery
 
-The contact form posts to the Vercel Function at `/api/contact`. It includes server-side validation, same-origin checks, a honeypot, minimum-completion timing, request throttling, and Resend delivery.
+The contact form posts to the Vercel Function at `/api/contact`. It includes server-side validation, same-origin checks, a honeypot, minimum-completion timing, a 16 KB body limit, bounded per-instance request throttling, and Resend delivery.
 
 Copy `.env.example` into the deployment environment and configure:
 
@@ -41,6 +41,10 @@ Copy `.env.example` into the deployment environment and configure:
 - `CONTACT_ALLOWED_ORIGINS` — comma-separated production origins
 
 Without these values, the endpoint intentionally returns `503 CONTACT_NOT_CONFIGURED` and the form does not claim success.
+
+### Production abuse protection
+
+The in-function throttle is defense in depth; serverless instances do not share its memory. Before launch, add a Vercel Firewall rate-limit rule for `POST /api/contact` (recommended starting policy: 5 requests per IP per 15 minutes), observe it in log-only mode, review legitimate traffic, and then publish it in Vercel. This repository is not currently linked to a Vercel project, so that shared edge rule cannot be staged from this checkout.
 
 ## Implementation notes
 

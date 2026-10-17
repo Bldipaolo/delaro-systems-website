@@ -4,179 +4,114 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Delaro Systems maps how companies operate, identifies expensive operational friction, and designs the simplest credible systems to improve performance." />
-    <meta name="theme-color" content="#0B1F33" />
+    <meta name="theme-color" content="#050D16" />
+    <meta property="og:title" content="Delaro Systems — Understand the operation. Improve the outcome." />
+    <meta property="og:description" content="Diagnosis-led operational systems and technology consultancy." />
+    <meta property="og:type" content="website" />
     <title>Delaro Systems — Understand the operation. Improve the outcome.</title>
+    <link rel="icon" href="/assets/brand/delaro-mark.png" type="image/png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@300;400;500&amp;display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
   </head>
-  <body>
+  <body class="home-page">
     <a class="skip-link" href="#main">Skip to content</a>
-
     <header class="site-header" data-header>
       <div class="container header-inner">
-        <a class="brand" href="#top" aria-label="Delaro Systems home">
-          <img src="assets/brand/delaro-lockup.png" alt="Delaro Systems" width="1420" height="300" />
-        </a>
-
-        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
-          <span class="sr-only">Toggle navigation</span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </button>
-
+        <a class="brand" href="#top" aria-label="Delaro Systems home"><img src="assets/brand/delaro-lockup.png" alt="Delaro Systems" width="1420" height="300" /></a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"><span class="sr-only">Toggle navigation</span><span aria-hidden="true"></span><span aria-hidden="true"></span></button>
         <nav class="primary-nav" id="primary-nav" aria-label="Primary navigation">
-          <a href="/approach">Approach</a>
-          <a href="/capabilities">Capabilities</a>
-          <a href="/work">Work</a>
-          <a href="/company">Company</a>
+          <a href="/approach">Approach</a><a href="/capabilities">Capabilities</a><a href="/work">Work</a><a href="/company">Company</a>
           <a class="nav-cta" href="/contact">Start a Conversation <span aria-hidden="true">↗</span></a>
         </nav>
       </div>
     </header>
 
     <main id="main">
-      <section class="hero section-navy" id="top" aria-labelledby="hero-title">
-        <div class="container hero-layout">
-          <div class="hero-content">
-            <p class="eyebrow eyebrow-sea">Operational systems &amp; technology</p>
+      <section class="home-hero" id="top" aria-labelledby="hero-title">
+        <figure class="home-hero-media media-stage" data-media-stage data-asset-id="HOME-HERO-MEDIA-PENDING" aria-hidden="true">
+          <picture class="media-stage-poster"><source media="(max-width: 620px)" srcset="/assets/media/placeholders/home-hero-mobile.svg" /><img src="/assets/media/placeholders/home-hero-desktop.svg" alt="" width="1200" height="1500" decoding="async" fetchpriority="high" /></picture>
+        </figure>
+        <div class="home-hero-shade" aria-hidden="true"></div>
+        <div class="container home-hero-inner">
+          <div class="home-hero-copy">
+            <p class="home-hero-kicker">Operational systems &amp; technology</p>
             <h1 id="hero-title">Understand the operation.<br /><em>Improve the outcome.</em></h1>
             <p class="hero-intro">We map how companies work, identify where time and money are being lost, and design systems that address the problems worth solving.</p>
-            <div class="hero-actions">
-              <a class="button button-light" href="/contact">Discuss Your Operations <span aria-hidden="true">↗</span></a>
-              <a class="text-link text-link-light" href="/approach">Explore Our Approach <span aria-hidden="true">→</span></a>
-            </div>
+            <div class="hero-actions"><a class="button button-outline" href="/contact">Discuss Your Operations <span aria-hidden="true">↗</span></a><a class="text-link text-link-light" href="/approach">Explore Our Approach <span aria-hidden="true">→</span></a></div>
           </div>
-
-          <div class="topology" aria-hidden="true">
-            <div class="topology-meta"><span>Operating map</span><span>01 / 05</span></div>
-            <svg viewBox="0 0 620 430" role="presentation">
-              <path class="topology-boundary" d="M34 38H586V392H34Z" />
-              <path class="topology-path path-one" d="M34 118H168L220 170H356L408 118H586" />
-              <path class="topology-path path-two" d="M34 260H136L202 326H360L426 260H586" />
-              <path class="topology-path path-three" d="M168 118V260M356 170V326M408 118V260" />
-              <path class="topology-horizon" d="M14 214H606" />
-              <g class="topology-node node-a"><circle cx="168" cy="118" r="6" /><circle class="node-ring" cx="168" cy="118" r="17" /></g>
-              <g class="topology-node node-b"><circle cx="356" cy="170" r="6" /><circle class="node-ring" cx="356" cy="170" r="17" /></g>
-              <g class="topology-node node-c"><circle cx="408" cy="260" r="6" /><circle class="node-ring" cx="408" cy="260" r="17" /></g>
-              <g class="topology-node node-d"><circle cx="202" cy="326" r="6" /><circle class="node-ring" cx="202" cy="326" r="17" /></g>
-              <text x="48" y="103">INPUT</text>
-              <text x="236" y="155">HANDOFF</text>
-              <text x="442" y="245">DECISION</text>
-              <text x="378" y="350">OUTCOME</text>
-            </svg>
-            <div class="topology-legend"><span><i></i> Process path</span><span><i></i> Intervention point</span></div>
-          </div>
+          <div class="home-hero-register" aria-label="Delaro operating principle"><span>Diagnosis before technology</span><i aria-hidden="true"></i><span>Delaro Systems</span></div>
         </div>
-        <div class="container hero-footer"><span>Diagnosis before technology</span><i></i><span>Delaro Systems</span></div>
+        <p class="media-pending-note">Provisional media — approved architectural photography pending asset access</p>
       </section>
 
-      <section class="section-warm section-pad" id="approach" aria-labelledby="problem-title">
-        <div class="container section-heading section-heading-wide">
-          <p class="eyebrow eyebrow-dark">Operational friction</p>
-          <div>
-            <h2 id="problem-title">Complexity has a cost.</h2>
-            <p class="section-lede">Fragmented systems, disconnected processes, and unclear handoffs turn ordinary work into expensive friction. The cost appears as delay, rework, errors, missed information, and decisions made without a reliable operating picture.</p>
-          </div>
+      <section class="home-section complexity-section" id="approach" aria-labelledby="problem-title">
+        <div class="container home-section-intro home-section-intro-offset">
+          <p class="section-context">Operational friction</p>
+          <div><h2 id="problem-title">Complexity has a cost.</h2><p class="home-lede">Fragmented systems, disconnected processes, and unclear handoffs turn ordinary work into expensive friction. The cost appears as delay, rework, errors, information gaps, and decisions made without a reliable operating picture.</p></div>
         </div>
-
-        <div class="container friction-layout">
-          <div class="friction-copy">
-            <p>Most operational problems do not live inside one task. They emerge between teams, tools, decisions, and the information each step depends on.</p>
-            <dl class="friction-signals">
-              <div><dt>Handoffs</dt><dd>Context degrades as work changes owners.</dd></div>
-              <div><dt>Decisions</dt><dd>Missing information slows the next move.</dd></div>
-              <div><dt>Systems</dt><dd>Duplicate data creates duplicate effort.</dd></div>
-            </dl>
+        <figure class="container causal-map friction-diagram">
+          <figcaption><span>Illustrative causal map</span><span>Friction emerges between operating layers</span></figcaption>
+          <svg viewBox="0 0 1200 560" role="img" aria-labelledby="causal-map-title causal-map-desc">
+            <title id="causal-map-title">Operational complexity causal map</title><desc id="causal-map-desc">People, processes, systems, and data converge at an operating constraint, producing delay, rework, errors, slow decisions, and information gaps.</desc>
+            <g class="causal-guides lane-lines"><path d="M16 106H1184"/><path d="M16 224H1184"/><path d="M16 342H1184"/><path d="M16 460H1184"/></g>
+            <g class="causal-sources flow-node"><g><circle cx="96" cy="106" r="6"/><text x="126" y="112">PEOPLE</text></g><g><circle cx="96" cy="224" r="6"/><text x="126" y="230">PROCESSES</text></g><g><circle cx="96" cy="342" r="6"/><text x="126" y="348">SYSTEMS</text></g><g><circle cx="96" cy="460" r="6"/><text x="126" y="466">DATA</text></g></g>
+            <g class="causal-paths flow-path"><path d="M260 106H410L522 283H596"/><path d="M260 224H438L522 283"/><path d="M260 342H438L522 283"/><path d="M260 460H410L522 283"/><path d="M626 283H710L822 106H1110"/><path d="M626 283H738L822 224H1110"/><path d="M626 283H738L822 342H1110"/><path d="M626 283H710L822 460H1110"/></g>
+            <g class="constraint-node friction-marker"><circle cx="611" cy="283" r="34"/><circle cx="611" cy="283" r="7"/><text x="611" y="343" text-anchor="middle">OPERATING CONSTRAINT</text></g>
+            <g class="causal-outcomes friction-notes"><text x="850" y="112">DELAY + SLOW DECISIONS</text><text x="850" y="230">REWORK + MANUAL EFFORT</text><text x="850" y="348">ERRORS + EXCEPTIONS</text><text x="850" y="466">INFORMATION GAPS</text></g>
+          </svg>
+          <div class="causal-map-summary">
+            <p>Most operational problems do not live inside one task. They emerge where ownership, information, and systems stop aligning.</p>
+            <dl><div><dt>Handoffs</dt><dd>Context degrades as work changes owners.</dd></div><div><dt>Decisions</dt><dd>Missing information slows the next move.</dd></div><div><dt>Systems</dt><dd>Duplicate data creates duplicate effort.</dd></div></dl>
           </div>
+        </figure>
+      </section>
 
-          <figure class="friction-diagram">
-            <figcaption>Illustrative operating flow — friction becomes visible at the handoff.</figcaption>
-            <svg viewBox="0 0 900 430" role="img" aria-labelledby="friction-diagram-title friction-diagram-desc">
-              <title id="friction-diagram-title">Operational handoff and friction map</title>
-              <desc id="friction-diagram-desc">A request moves through intake, review, decision, and delivery. Sea Glass markers identify delays, duplicate work, and information gaps at the handoffs.</desc>
-              <g class="lane-labels"><text x="26" y="74">REQUEST</text><text x="26" y="172">REVIEW</text><text x="26" y="270">DECISION</text><text x="26" y="368">DELIVERY</text></g>
-              <g class="lane-lines"><path d="M138 68H866" /><path d="M138 166H866" /><path d="M138 264H866" /><path d="M138 362H866" /></g>
-              <g class="flow-path"><path d="M174 68H312L366 166H496L550 264H692L746 362H838" /></g>
-              <g class="flow-node"><circle cx="174" cy="68" r="8" /><circle cx="366" cy="166" r="8" /><circle cx="550" cy="264" r="8" /><circle cx="746" cy="362" r="8" /></g>
-              <g class="friction-marker">
-                <line x1="312" y1="68" x2="366" y2="166" /><circle cx="339" cy="117" r="14" /><text x="339" y="122" text-anchor="middle">!</text>
-                <line x1="496" y1="166" x2="550" y2="264" /><circle cx="523" cy="215" r="14" /><text x="523" y="220" text-anchor="middle">!</text>
-                <line x1="692" y1="264" x2="746" y2="362" /><circle cx="719" cy="313" r="14" /><text x="719" y="318" text-anchor="middle">!</text>
-              </g>
-              <g class="friction-notes"><text x="300" y="145">CONTEXT LOSS</text><text x="487" y="243">DUPLICATE WORK</text><text x="672" y="341">DECISION DELAY</text></g>
-            </svg>
-          </figure>
+      <section class="home-section philosophy-section" aria-labelledby="difference-title">
+        <div class="container philosophy-layout">
+          <div class="philosophy-copy">
+            <p class="section-context">Our starting point</p><h2 id="difference-title">We don’t start with technology.</h2>
+            <p class="large-copy">We begin by understanding the business: how work moves, what the constraints cost, which outcomes matter, and how much of the problem is realistically addressable.</p>
+            <p>Only then do we determine the appropriate intervention. The solution might involve automation, AI, an integration, an internal tool, a clearer decision model—or removing unnecessary work entirely.</p>
+            <div class="diagnosis-line" aria-label="Business reality leads to an economic constraint and then to an appropriate system"><span>Business reality</span><i aria-hidden="true"></i><span>Economic constraint</span><i aria-hidden="true"></i><span>Appropriate system</span></div>
+          </div>
+          <figure class="philosophy-media media-stage" data-media-stage data-asset-id="HOME-PHILOSOPHY-MEDIA-PENDING" aria-hidden="true"><picture class="media-stage-poster"><img src="/assets/media/placeholders/home-hero-desktop.svg" alt="" width="1200" height="1500" loading="lazy" decoding="async" /></picture><span class="media-pending-note">Ocean aerial pending approved asset</span></figure>
         </div>
       </section>
 
-      <section class="section-navy section-pad difference" aria-labelledby="difference-title">
-        <div class="container difference-grid">
-          <div class="difference-statement"><p class="eyebrow eyebrow-sea">A different starting point</p><h2 id="difference-title">We don’t start with technology.</h2></div>
-          <div class="difference-copy"><p class="large-copy">We begin by understanding the business: how work moves, what the constraints cost, which outcomes matter, and how much of the problem is realistically addressable.</p><p>Only then do we determine the appropriate intervention. Sometimes that means automation or AI. Sometimes it means an integration, an internal tool, a clearer decision model, or removing unnecessary steps entirely.</p></div>
-        </div>
-
-        <div class="container starting-points" aria-label="Diagnosis-led and solution-first approaches">
-          <div class="starting-point starting-point-primary"><span class="starting-label">Diagnosis-led</span><div class="starting-flow"><strong>Business reality</strong><i></i><strong>Economic constraint</strong><i></i><strong>Appropriate system</strong></div><p>The solution follows the evidence.</p></div>
-          <div class="starting-point"><span class="starting-label">Solution-first</span><div class="starting-flow"><strong>Chosen technology</strong><i></i><strong>Possible use case</strong><i></i><strong>Uncertain value</strong></div><p>A tool is selected before the problem is understood.</p></div>
-        </div>
-      </section>
-
-      <section class="section-slate section-pad methodology" id="methodology" aria-labelledby="methodology-title">
-        <div class="container section-heading section-heading-dark"><p class="eyebrow eyebrow-light">Our methodology</p><div><h2 id="methodology-title">A disciplined path from observation to improvement.</h2><p class="section-lede">Each stage reduces uncertainty before investment increases.</p></div></div>
-        <ol class="container method-sequence">
-          <li><span>01</span><h3>Map</h3><p>See the operation as a connected system.</p></li>
-          <li><span>02</span><h3>Diagnose</h3><p>Find the constraint, failure point, or information gap.</p></li>
-          <li><span>03</span><h3>Quantify</h3><p>Establish the cost, frequency, and addressable value.</p></li>
-          <li><span>04</span><h3>Prioritize</h3><p>Choose the work with the strongest operational case.</p></li>
-          <li><span>05</span><h3>Architect</h3><p>Design the simplest credible intervention.</p></li>
-          <li><span>06</span><h3>Implement</h3><p>Build, integrate, and introduce the system carefully.</p></li>
-          <li><span>07</span><h3>Measure</h3><p>Compare performance against the agreed baseline.</p></li>
-          <li><span>08</span><h3>Improve</h3><p>Refine the system and identify the next constraint.</p></li>
+      <section class="home-section methodology-section" id="methodology" aria-labelledby="methodology-title">
+        <div class="container home-section-intro"><p class="section-context">Methodology</p><div><h2 id="methodology-title">A disciplined path from observation to improvement.</h2><p class="home-lede">Each stage reduces uncertainty before investment increases.</p></div></div>
+        <ol class="container method-sequence home-method-sequence">
+          <li><span>01</span><h3>Map</h3><p>See the operation as a connected system.</p></li><li><span>02</span><h3>Diagnose</h3><p>Find the constraint, failure point, or information gap.</p></li><li><span>03</span><h3>Quantify</h3><p>Establish the cost, frequency, and addressable value.</p></li><li><span>04</span><h3>Prioritize</h3><p>Choose the work with the strongest operational case.</p></li><li><span>05</span><h3>Architect</h3><p>Design the simplest credible intervention.</p></li><li><span>06</span><h3>Implement</h3><p>Build, integrate, and introduce the system carefully.</p></li><li><span>07</span><h3>Measure</h3><p>Compare performance against the agreed baseline.</p></li><li><span>08</span><h3>Improve</h3><p>Refine the system and identify the next constraint.</p></li>
         </ol>
       </section>
 
-      <section class="section-warm section-pad capabilities" id="capabilities" aria-labelledby="capabilities-title">
-        <div class="container section-heading section-heading-wide"><p class="eyebrow eyebrow-dark">Capabilities</p><div><h2 id="capabilities-title">The right system for the right problem.</h2><p class="section-lede">Delaro works across process, software, data, and decision-making. The shape of the solution is determined by the operating problem—not a predefined package.</p></div></div>
-        <div class="container capability-list">
-          <article><span>01</span><h3>Process redesign</h3><p>Clarify ownership, remove unnecessary steps, and make handoffs more reliable before introducing technology.</p></article>
-          <article><span>02</span><h3>Integrations &amp; automation</h3><p>Connect systems and reduce repetitive work where the process is stable, valuable, and safe to automate.</p></article>
-          <article><span>03</span><h3>AI &amp; decision systems</h3><p>Apply intelligent systems where judgment, information synthesis, or response speed creates measurable value.</p></article>
-          <article><span>04</span><h3>Internal software</h3><p>Build focused tools that support the way teams actually work instead of forcing the operation into generic software.</p></article>
-          <article><span>05</span><h3>Operational intelligence</h3><p>Create the data structures, dashboards, and signals leaders need to see performance and act with confidence.</p></article>
+      <section class="home-section capability-section" id="capabilities" aria-labelledby="capabilities-title">
+        <div class="container capability-heading"><div><p class="section-context">Possible interventions</p><h2 id="capabilities-title">The right system for the right problem.</h2></div><p>Delaro works across process, software, data, and decision-making. The shape of the solution is determined by the operating problem—not a predefined package.</p></div>
+        <div class="container capability-list home-capability-list">
+          <article><span>01</span><h3>Process redesign</h3><p>Clarify ownership, remove unnecessary steps, and make handoffs more reliable before introducing technology.</p></article><article><span>02</span><h3>Integrations &amp; automation</h3><p>Connect systems and reduce repetitive work where the process is stable, valuable, and safe to automate.</p></article><article><span>03</span><h3>AI &amp; decision systems</h3><p>Apply intelligent systems where judgment, information synthesis, or response speed creates measurable value.</p></article><article><span>04</span><h3>Internal software</h3><p>Build focused tools that support the way teams actually work instead of forcing the operation into generic software.</p></article><article><span>05</span><h3>Operational intelligence</h3><p>Create the data structures, dashboards, and signals leaders need to see performance and act with confidence.</p></article>
         </div>
       </section>
 
-      <section class="section-navy section-pad impact" id="impact" aria-labelledby="impact-title">
-        <div class="container section-heading section-heading-dark"><p class="eyebrow eyebrow-sea">Economic impact</p><div><h2 id="impact-title">Improvement should be measurable.</h2><p class="section-lede">A credible system begins with a baseline, defines the intended intervention, and measures what changed. Where evidence is incomplete, we identify the missing variables instead of inventing a return.</p></div></div>
-        <div class="container impact-visual" role="img" aria-label="Illustrative measurement framework showing a baseline, an intervention, and a measured outcome without fabricated metrics">
-          <div class="impact-axis" aria-hidden="true"><span></span><i></i><span></span></div>
-          <div class="impact-stage"><span class="impact-index">01</span><h3>Baseline</h3><p>Document current time, cost, volume, error, delay, and downstream effects.</p><div class="measure-lines"><i></i><i></i><i></i></div></div>
-          <div class="impact-stage impact-stage-active"><span class="impact-index">02</span><h3>Intervention</h3><p>Define the process or system change and the portion of the problem it can address.</p><div class="intervention-mark" aria-hidden="true"><span></span></div></div>
-          <div class="impact-stage"><span class="impact-index">03</span><h3>Measured outcome</h3><p>Compare the new operating state against the baseline and agreed success criteria.</p><div class="measure-lines measure-lines-outcome"><i></i><i></i><i></i></div></div>
-          <p class="illustrative-note">Framework shown for illustration; values are established from client data.</p>
-        </div>
+      <section class="home-section measurement-section" id="impact" aria-labelledby="impact-title">
+        <div class="container home-section-intro home-section-intro-offset"><p class="section-context">Economic impact</p><div><h2 id="impact-title">Improvement should be measurable.</h2><p class="home-lede">A credible system begins with a baseline, defines the intended intervention, and measures what changed. Where evidence is incomplete, we identify the missing variables instead of inventing a return.</p></div></div>
+        <figure class="container outcome-schematic"><figcaption>Illustrative measurement framework — no client values shown</figcaption><div class="outcome-axis" aria-hidden="true"><span></span><i></i><b></b><i></i><span></span></div><div class="outcome-stages"><div><span>Baseline</span><h3>Define the present state.</h3><p>Document current time, cost, volume, error, delay, and downstream effects.</p></div><div class="outcome-intervention"><span>Intervention</span><h3>Change the system.</h3><p>Specify the process or technology change and the portion of the problem it can address.</p></div><div><span>Measured outcome</span><h3>Compare what changed.</h3><p>Evaluate the new operating state against the baseline and agreed success criteria.</p></div></div></figure>
       </section>
 
-      <section class="section-warm section-pad relationship" id="company" aria-labelledby="relationship-title">
-        <div class="container relationship-grid"><div><p class="eyebrow eyebrow-dark">The relationship</p><h2 id="relationship-title">Operational improvement is not a one-time event.</h2></div><div class="relationship-copy"><p class="large-copy">Every improvement changes the operating system around it. New information appears, constraints move, and the next valuable opportunity becomes easier to see.</p><p>Delaro stays close enough to measure what changed, learn from the result, and help identify what should be improved next.</p></div></div>
-        <ol class="container relationship-cycle" aria-label="Delaro's continuous improvement relationship">
-          <li><span>01</span><strong>Understand</strong></li><li><span>02</span><strong>Improve</strong></li><li><span>03</span><strong>Measure</strong></li><li><span>04</span><strong>Learn</strong></li><li><span>05</span><strong>Next constraint</strong></li>
-        </ol>
+      <section class="improvement-section" id="company" aria-labelledby="relationship-title">
+        <figure class="improvement-media media-stage" data-media-stage data-asset-id="HOME-IMPROVEMENT-MEDIA-PENDING" aria-hidden="true"><picture class="media-stage-poster"><img src="/assets/media/placeholders/home-hero-desktop.svg" alt="" width="1200" height="1500" loading="lazy" decoding="async" /></picture></figure>
+        <div class="improvement-shade" aria-hidden="true"></div>
+        <div class="container improvement-content"><div><p class="section-context">Continuous improvement</p><h2 id="relationship-title">The next constraint becomes visible.</h2><p>Every improvement changes the operating system around it. New information appears, constraints move, and the next valuable opportunity becomes easier to see.</p></div><ol class="improvement-cycle" aria-label="Delaro continuous improvement cycle"><li><span>01</span>Understand</li><li><span>02</span>Improve</li><li><span>03</span>Measure</li><li><span>04</span>Learn</li><li><span>05</span>Identify the next constraint</li></ol></div>
+        <p class="media-pending-note">Provisional media — approved ocean and rock photography pending asset access</p>
       </section>
 
-      <section class="section-navy final-cta" id="contact" aria-labelledby="contact-title">
-        <div class="container final-cta-grid"><p class="eyebrow eyebrow-sea">Begin with the operation</p><div><h2 id="contact-title">Find out what’s worth fixing.</h2><p>Start with a conversation about how your business operates.</p><a class="button button-light" href="/contact" aria-label="Start a Conversation with Delaro Systems">Start a Conversation <span aria-hidden="true">↗</span></a></div></div>
-      </section>
+      <section class="home-contact" id="contact" aria-labelledby="contact-title"><div class="container home-contact-grid"><p class="section-context">Begin with the operation</p><div><h2 id="contact-title">Find out what’s worth fixing.</h2><p>Start with a conversation about how your business operates.</p><a class="text-link text-link-light home-contact-action" href="/contact">Start a Conversation <span aria-hidden="true">↗</span></a></div></div></section>
     </main>
 
     <footer class="site-footer section-navy">
-      <div class="container footer-top">
-        <a class="footer-brand" href="#top" aria-label="Delaro Systems home"><img src="assets/brand/delaro-lockup.png" alt="Delaro Systems" width="1420" height="300" /></a>
-        <nav aria-label="Footer navigation"><a href="/approach">Approach</a><a href="/capabilities">Capabilities</a><a href="/work">Work</a><a href="/company">Company</a></nav>
-      </div>
+      <div class="container footer-top"><a class="footer-brand" href="#top" aria-label="Delaro Systems home"><img src="assets/brand/delaro-lockup.png" alt="Delaro Systems" width="1420" height="300" /></a><nav aria-label="Footer navigation"><a href="/approach">Approach</a><a href="/capabilities">Capabilities</a><a href="/work">Work</a><a href="/company">Company</a><a href="/contact">Contact</a></nav></div>
       <div class="container footer-bottom"><span>© 2026 Delaro Systems</span><span>Operational systems &amp; technology</span></div>
     </footer>
   </body>

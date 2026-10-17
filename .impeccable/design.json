@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-16T18:00:00Z",
+  "generatedAt": "2026-10-17T00:45:00Z",
   "title": "Design System: Delaro Systems",
   "extensions": {
     "colorMeta": {
@@ -9,6 +9,13 @@
       "slate": { "role": "neutral", "displayName": "Slate", "canonical": "#2D3E4A", "tonalRamp": ["#11191E", "#202C34", "#2D3E4A", "#4B5B66", "#71808A", "#9DA7AE", "#C9CFD3", "#F0F2F3"] },
       "silver-gray": { "role": "neutral", "displayName": "Silver Gray", "canonical": "#B8C0C7", "tonalRamp": ["#24282C", "#41474C", "#626A71", "#899198", "#B8C0C7", "#D0D5D9", "#E5E8EA", "#F5F6F7"] },
       "warm-white": { "role": "neutral", "displayName": "Warm White", "canonical": "#F6F4EE", "tonalRamp": ["#282721", "#4C4A42", "#747168", "#9E9A90", "#C8C4BA", "#E0DDD5", "#F0EEE8", "#F6F4EE"] }
+    },
+    "derivedSurfaceMeta": {
+      "status": "proposal-pending-reference-review",
+      "cinematic-ink": { "displayName": "Cinematic Ink", "value": "#050D16", "derivedFrom": "deep-navy" },
+      "cinematic-deep": { "displayName": "Cinematic Deep", "value": "#081827", "derivedFrom": "deep-navy" },
+      "media-scrim": { "displayName": "Media Scrim", "value": "rgba(5, 13, 22, 0.34)", "derivedFrom": "cinematic-ink" },
+      "visualRatio": { "darkField": "75%", "warmEditorial": "20%", "seaGlassIntervention": "5% maximum" }
     },
     "typographyMeta": {
       "display": { "displayName": "Display", "purpose": "The single dominant page statement." },
@@ -70,12 +77,19 @@
         "description": "A labeled line that relates two operational states.",
         "html": "<div class=\"ds-horizon\"><span>Business context</span><i></i><span>Measured outcome</span></div>",
         "css": ".ds-horizon { display: flex; align-items: center; gap: 18px; color: var(--warm, #F6F4EE); font: 500 11px/1.4 Inter, sans-serif; letter-spacing: .13em; text-transform: uppercase; } .ds-horizon i { flex: 1; height: 1px; background: var(--sea, #4E9D93); }"
+      },
+      {
+        "name": "Static-first Media Stage",
+        "kind": "custom",
+        "description": "A reserved responsive poster with optional, preference-aware video enhancement and supplemental overlay metadata.",
+        "html": "<figure class=\"media-stage\" data-media-stage data-asset-id=\"MANIFEST-ID\"><picture class=\"media-stage-poster\"><source media=\"(max-width: 620px)\" srcset=\"mobile-poster.webp\"><img src=\"desktop-poster.webp\" alt=\"\" width=\"1600\" height=\"1200\"></picture><div class=\"media-stage-overlay\" aria-hidden=\"true\"></div></figure>",
+        "css": ".media-stage { position: relative; isolation: isolate; overflow: hidden; aspect-ratio: var(--media-ratio, 4 / 5); background: var(--ink, #050D16); } .media-stage-poster, .media-stage-video, .media-stage-overlay { position: absolute; inset: 0; width: 100%; height: 100%; } .media-stage-poster img, .media-stage-video { width: 100%; height: 100%; object-fit: cover; object-position: var(--media-position, 50% 50%); }"
       }
     ],
     "narrative": {
       "northStar": "The Operating Blueprint",
-      "overview": "Delaro's visual system treats the website as an architectural drawing of a business: measured, spacious, and explicit about relationships. Deep fields establish authority; warm editorial surfaces create moments for analysis; thin lines expose sequence, handoff, and causality. The composition is premium but not ornamental. Type carries most of the expression, diagrams carry meaning, and Sea Glass appears only where attention or intervention is consequential.",
-      "keyCharacteristics": ["Navy-dominant editorial rhythm with selective warm-white analysis sections.", "Asymmetric twelve-column compositions and generous negative space.", "Fine linear diagrams, registers, and the recurring Linear Horizon.", "Restrained, state-driven motion that preserves reading order."],
+      "overview": "Delaro's visual system treats the website as an architectural drawing of a business: measured, spacious, and explicit about relationships. Deep fields establish authority; warm editorial surfaces create moments for analysis; thin lines expose sequence, handoff, and causality. Static-first cinematic media may deepen the world without carrying required content, and Sea Glass appears only where attention or intervention is consequential.",
+      "keyCharacteristics": ["Dark-field editorial rhythm with selective warm-white analysis sections.", "Asymmetric twelve-column compositions and generous negative space.", "Static-first, video-ready media with manifest-backed asset IDs.", "Fine linear diagrams, registers, and the recurring Linear Horizon.", "Restrained, state-driven motion that preserves reading order."],
       "rules": [
         { "name": "The Intervention Rule", "body": "Sea Glass marks action, focus, or a consequential point in a system; it is not ambient decoration.", "section": "colors" },
         { "name": "The Two-Ground Rule", "body": "Compose primarily on Deep Navy or Warm White. Slate supports hierarchy but does not become a third competing page ground.", "section": "colors" },

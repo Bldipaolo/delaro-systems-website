@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1500" role="img" aria-labelledby="title desc">
+  <title id="title">Reserved Delaro hero media stage</title>
+  <desc id="desc">A dark placeholder marks the future location of approved licensed media.</desc>
+  <rect width="1200" height="1500" fill="#050D16"/>
+  <path d="M84 750h1032" fill="none" stroke="#4E9D93" stroke-width="2" opacity=".68"/>
+  <path d="M84 84h1032v1332H84z" fill="none" stroke="#B8C0C7" opacity=".16"/>
+</svg>
