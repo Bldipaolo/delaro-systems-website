@@ -30,12 +30,13 @@ const allowedOrigin = (request) => {
   const origin = request.headers.get('origin');
   if (!origin) return true;
 
+  const requestOrigin = new URL(request.url).origin;
   const configured = (process.env.CONTACT_ALLOWED_ORIGINS || '')
     .split(',')
     .map((value) => value.trim())
     .filter(Boolean);
   const deployment = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : '';
-  const allowed = new Set([...configured, deployment, 'http://localhost:4173', 'http://127.0.0.1:4173']);
+  const allowed = new Set([...configured, requestOrigin, deployment, 'http://localhost:4173', 'http://127.0.0.1:4173']);
   return allowed.has(origin);
 };
 
