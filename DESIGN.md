@@ -102,7 +102,7 @@ The composition is premium but not ornamental. Type carries most of the expressi
 
 The approved brand colors remain unchanged. For photographic stages and deep page transitions, the implementation may derive **Cinematic Ink** (`#050D16`) and **Cinematic Deep** (`#081827`) from Deep Navy. These are proposed layout surfaces—not additions to the official brand palette—and must never replace Deep Navy in logos, brand documentation, or color-critical UI.
 
-The proposed composition ratio is approximately 75% dark field, 20% Warm White editorial relief, and no more than 5% Sea Glass intervention. This ratio describes page rhythm, not a requirement for every viewport. The inaccessible asset manifest and reference image must be reviewed before treating these proposals as approved.
+The proposed composition ratio is approximately 75% dark field, 20% Warm White editorial relief, and no more than 5% Sea Glass intervention. This ratio describes page rhythm, not a requirement for every viewport. The supplied asset manifest and approved cinematic mockup were reviewed before the homepage media stages were finalized.
 
 ## Colors
 
@@ -170,7 +170,7 @@ Reusable layout primitives include `.editorial-grid-12`, span utilities, `.dark-
 - Key headings, body copy, actions, and navigation remain outside the media. Overlay content is supplemental metadata only.
 - Optional `data-video-webm` and `data-video-mp4` attributes progressively add silent inline video. The poster remains visible until the video can play.
 - Video enhancement is skipped for reduced-motion and Save-Data preferences, and playback pauses outside the viewport.
-- Every stage carries an asset ID from the approved manifest. Until the manifest is readable, provisional IDs are explicitly marked pending and no stock imagery is substituted.
+- Every stage carries an asset ID from the approved manifest. The homepage currently resolves `HERO-01`, `PHIL-01`, and `PARTNER-01` with responsive owner-supplied stills; no stock imagery is substituted.
 
 ## Elevation & Depth
 

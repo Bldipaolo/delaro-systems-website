@@ -12,6 +12,8 @@
     <link rel="icon" href="/assets/brand/delaro-mark.png" type="image/png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="image" href="/assets/media/approved/hero-architecture-desktop.jpg" media="(min-width: 621px)" fetchpriority="high" />
+    <link rel="preload" as="image" href="/assets/media/approved/hero-architecture-mobile.jpg" media="(max-width: 620px)" fetchpriority="high" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@300;400;500&amp;display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
@@ -31,8 +33,8 @@
 
     <main id="main">
       <section class="home-hero" id="top" aria-labelledby="hero-title">
-        <figure class="home-hero-media media-stage" data-media-stage data-asset-id="HOME-HERO-MEDIA-PENDING" aria-hidden="true">
-          <picture class="media-stage-poster"><source media="(max-width: 620px)" srcset="/assets/media/placeholders/home-hero-mobile.svg" /><img src="/assets/media/placeholders/home-hero-desktop.svg" alt="" width="1200" height="1500" decoding="async" fetchpriority="high" /></picture>
+        <figure class="home-hero-media media-stage" data-media-stage data-asset-id="HERO-01" aria-hidden="true">
+          <picture class="media-stage-poster"><source media="(max-width: 620px)" srcset="/assets/media/approved/hero-architecture-mobile.jpg" width="753" height="941" /><img src="/assets/media/approved/hero-architecture-desktop.jpg" alt="" width="1672" height="941" decoding="async" fetchpriority="high" /></picture>
         </figure>
         <div class="home-hero-shade" aria-hidden="true"></div>
         <div class="container home-hero-inner">
@@ -44,7 +46,6 @@
           </div>
           <div class="home-hero-register" aria-label="Delaro operating principle"><span>Diagnosis before technology</span><i aria-hidden="true"></i><span>Delaro Systems</span></div>
         </div>
-        <p class="media-pending-note">Provisional media — approved architectural photography pending asset access</p>
       </section>
 
       <section class="home-section complexity-section" id="approach" aria-labelledby="problem-title">
@@ -56,9 +57,9 @@
           <figcaption><span>Illustrative causal map</span><span>Friction emerges between operating layers</span></figcaption>
           <svg viewBox="0 0 1200 560" role="img" aria-labelledby="causal-map-title causal-map-desc">
             <title id="causal-map-title">Operational complexity causal map</title><desc id="causal-map-desc">People, processes, systems, and data converge at an operating constraint, producing delay, rework, errors, slow decisions, and information gaps.</desc>
-            <g class="causal-guides lane-lines"><path d="M16 106H1184"/><path d="M16 224H1184"/><path d="M16 342H1184"/><path d="M16 460H1184"/></g>
+            <g class="causal-guides lane-lines"><path d="M16 106H86M270 106H410"/><path d="M16 224H86M270 224H438"/><path d="M16 342H86M270 342H438"/><path d="M16 460H86M270 460H410"/></g>
             <g class="causal-sources flow-node"><g><circle cx="96" cy="106" r="6"/><text x="126" y="112">PEOPLE</text></g><g><circle cx="96" cy="224" r="6"/><text x="126" y="230">PROCESSES</text></g><g><circle cx="96" cy="342" r="6"/><text x="126" y="348">SYSTEMS</text></g><g><circle cx="96" cy="460" r="6"/><text x="126" y="466">DATA</text></g></g>
-            <g class="causal-paths flow-path"><path d="M260 106H410L522 283H596"/><path d="M260 224H438L522 283"/><path d="M260 342H438L522 283"/><path d="M260 460H410L522 283"/><path d="M626 283H710L822 106H1110"/><path d="M626 283H738L822 224H1110"/><path d="M626 283H738L822 342H1110"/><path d="M626 283H710L822 460H1110"/></g>
+            <g class="causal-paths flow-path"><path d="M260 106H410L522 283H596"/><path d="M260 224H438L522 283"/><path d="M260 342H438L522 283"/><path d="M260 460H410L522 283"/><path d="M626 283H710L822 106H830"/><path d="M626 283H738L822 224H830"/><path d="M626 283H738L822 342H830"/><path d="M626 283H710L822 460H830"/></g>
             <g class="constraint-node friction-marker"><circle cx="611" cy="283" r="34"/><circle cx="611" cy="283" r="7"/><text x="611" y="343" text-anchor="middle">OPERATING CONSTRAINT</text></g>
             <g class="causal-outcomes friction-notes"><text x="850" y="112">DELAY + SLOW DECISIONS</text><text x="850" y="230">REWORK + MANUAL EFFORT</text><text x="850" y="348">ERRORS + EXCEPTIONS</text><text x="850" y="466">INFORMATION GAPS</text></g>
           </svg>
@@ -77,7 +78,7 @@
             <p>Only then do we determine the appropriate intervention. The solution might involve automation, AI, an integration, an internal tool, a clearer decision model—or removing unnecessary work entirely.</p>
             <div class="diagnosis-line" aria-label="Business reality leads to an economic constraint and then to an appropriate system"><span>Business reality</span><i aria-hidden="true"></i><span>Economic constraint</span><i aria-hidden="true"></i><span>Appropriate system</span></div>
           </div>
-          <figure class="philosophy-media media-stage" data-media-stage data-asset-id="HOME-PHILOSOPHY-MEDIA-PENDING" aria-hidden="true"><picture class="media-stage-poster"><img src="/assets/media/placeholders/home-hero-desktop.svg" alt="" width="1200" height="1500" loading="lazy" decoding="async" /></picture><span class="media-pending-note">Ocean aerial pending approved asset</span></figure>
+          <figure class="philosophy-media media-stage" data-media-stage data-asset-id="PHIL-01" aria-hidden="true"><picture class="media-stage-poster"><source media="(max-width: 620px)" srcset="/assets/media/approved/coastline-aerial-mobile.jpg" width="753" height="941" /><img src="/assets/media/approved/coastline-aerial.jpg" alt="" width="1176" height="941" loading="lazy" decoding="async" /></picture></figure>
         </div>
       </section>
 
@@ -101,10 +102,9 @@
       </section>
 
       <section class="improvement-section" id="company" aria-labelledby="relationship-title">
-        <figure class="improvement-media media-stage" data-media-stage data-asset-id="HOME-IMPROVEMENT-MEDIA-PENDING" aria-hidden="true"><picture class="media-stage-poster"><img src="/assets/media/placeholders/home-hero-desktop.svg" alt="" width="1200" height="1500" loading="lazy" decoding="async" /></picture></figure>
+        <figure class="improvement-media media-stage" data-media-stage data-asset-id="PARTNER-01" aria-hidden="true"><picture class="media-stage-poster"><source media="(max-width: 620px)" srcset="/assets/media/approved/rock-surf-aerial-mobile.jpg" width="753" height="941" /><img src="/assets/media/approved/rock-surf-aerial.jpg" alt="" width="1672" height="941" loading="lazy" decoding="async" /></picture></figure>
         <div class="improvement-shade" aria-hidden="true"></div>
         <div class="container improvement-content"><div><p class="section-context">Continuous improvement</p><h2 id="relationship-title">The next constraint becomes visible.</h2><p>Every improvement changes the operating system around it. New information appears, constraints move, and the next valuable opportunity becomes easier to see.</p></div><ol class="improvement-cycle" aria-label="Delaro continuous improvement cycle"><li><span>01</span>Understand</li><li><span>02</span>Improve</li><li><span>03</span>Measure</li><li><span>04</span>Learn</li><li><span>05</span>Identify the next constraint</li></ol></div>
-        <p class="media-pending-note">Provisional media — approved ocean and rock photography pending asset access</p>
       </section>
 
       <section class="home-contact" id="contact" aria-labelledby="contact-title"><div class="container home-contact-grid"><p class="section-context">Begin with the operation</p><div><h2 id="contact-title">Find out what’s worth fixing.</h2><p>Start with a conversation about how your business operates.</p><a class="text-link text-link-light home-contact-action" href="/contact">Start a Conversation <span aria-hidden="true">↗</span></a></div></div></section>
